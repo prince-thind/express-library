@@ -1,9 +1,9 @@
 const express = require('express');
-const router = express.router();
+const router = express.Router();
 
 const book_controller = require('../controllers/bookController');
-const authro_controller = require('../controllers/authorController');
-const book_instanceController = require('../controllers/bookinstanceController');
+const author_controller = require('../controllers/authorController');
+const book_instance_controller = require('../controllers/bookinstanceController');
 const genre_controller = require('../controllers/genreController');
 
 // GET catalog home page.
