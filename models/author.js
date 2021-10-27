@@ -19,10 +19,12 @@ AuthorSchema.virtual('lifespan').get(function () {
     res = DateTime.fromJSDate(this.date_of_birth).toLocaleString(
       DateTime.DATE_MED
     );
+    
   }
-  res += '-';
+  
   if (this.date_of_death) {
-    res = DateTime.fromJSDate(this.date_of_death).toLocaleString(
+    res += ' - ';
+    res += DateTime.fromJSDate(this.date_of_death).toLocaleString(
       DateTime.DATE_MED
     );
   }
