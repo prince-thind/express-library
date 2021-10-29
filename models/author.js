@@ -19,9 +19,8 @@ AuthorSchema.virtual('lifespan').get(function () {
     res = DateTime.fromJSDate(this.date_of_birth).toLocaleString(
       DateTime.DATE_MED
     );
-    
   }
-  
+
   if (this.date_of_death) {
     res += ' - ';
     res += DateTime.fromJSDate(this.date_of_death).toLocaleString(
@@ -33,6 +32,13 @@ AuthorSchema.virtual('lifespan').get(function () {
 
 AuthorSchema.virtual('url').get(function () {
   return '/catalog/author/' + this._id;
+});
+
+AuthorSchema.virtual('date_of_birth_input').get(function () {
+  return DateTime.fromJSDate(this.date_of_birth).toFormat('yyyy-MM-dd');
+});
+AuthorSchema.virtual('date_of_death_input').get(function () {
+  return DateTime.fromJSDate(this.date_of_death).toFormat('yyyy-MM-dd');
 });
 
 module.exports = mongoose.model('Author', AuthorSchema);
